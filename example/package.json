@@ -1,0 +1,13 @@
+{
+  "name": "@vitepress-theme-blog/example",
+  "version": "0.0.0",
+  "private": "true",
+  "scripts": {
+    "dev":"vitepress --port 3333 --open",
+    "build": "vitepress build"
+  },
+  "dependencies": {
+    "vitepress": "1.0.0-alpha.32",
+    "vitepress-theme-blog":"workspace:*"
+  }
+}
