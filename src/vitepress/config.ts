@@ -1,9 +1,3 @@
-import {
-  LocaleLinkItem,
-  MenuItemChildWithChildren,
-  MenuItemWithLink,
-  SocialLink
-} from '../core'
 
 export interface Config {
   /**
@@ -12,22 +6,6 @@ export interface Config {
    * @default true
    */
   appearance?: boolean
-
-  /**
-   * The social links to be displayed at the end of the nav bar. Perfect for
-   * placing links to social services such as GitHub, Twitter, Facebook, etc.
-   */
-  socialLinks?: SocialLink[]
-
-  /**
-   * The nav items.
-   */
-  nav?: NavItem[]
-
-  /**
-   * The sidebar items.
-   */
-  sidebar?: SidebarConfig
 
   /**
    * The i18n messages.
@@ -75,10 +53,6 @@ export interface Config {
     placement: string
   }
 
-  /**
-   * Translation/Locales links
-   */
-  localeLinks?: LocaleLinkItem[]
 }
 
 /**
@@ -142,33 +116,6 @@ export interface ScreenStateTranslations {
     reportMissingResultsText?: string
     reportMissingResultsLinkText?: string
   }
-}
-
-export type NavItem = NavItemWithLink | NavItemWithChildren
-
-export type NavItemWithLink = MenuItemWithLink & {
-  /**
-   * activeMatch is expected to be a regex string
-   * We can't use actual RegExp object here because it isn't serializable
-   */
-  activeMatch?: string
-}
-
-export interface NavItemWithChildren {
-  text?: string
-  activeMatch?: string
-  items: (NavItemWithLink | MenuItemChildWithChildren)[]
-}
-
-export type SidebarConfig = SidebarGroup[] | MultiSidebarConfig
-
-export interface MultiSidebarConfig {
-  [path: string]: SidebarGroup[]
-}
-
-export interface SidebarGroup {
-  text: string
-  items: MenuItemWithLink[]
 }
 
 export interface i18nConfig {

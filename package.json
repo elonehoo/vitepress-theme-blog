@@ -1,6 +1,6 @@
 {
   "name": "vitepress-theme-blog",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "",
   "main": "src/index.ts",
   "exports": {
@@ -10,7 +10,9 @@
   "files": [
     "src"
   ],
-  "scripts": {},
+  "scripts": {
+    "dev":"pnpm -C example run dev"
+  },
   "keywords": [
     "vue",
     "vitepress",
