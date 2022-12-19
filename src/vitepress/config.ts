@@ -7,6 +7,11 @@ export interface Config {
    */
   appearance?: boolean
 
+  logo?:{
+    light?:string
+    dark?:string
+  }
+
   /**
    * The i18n messages.
    */
