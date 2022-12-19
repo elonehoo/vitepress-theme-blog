@@ -1,21 +1,18 @@
-<script lang="ts" setup>
+<script setup lang="ts">
 import { computed } from 'vue'
 const props = defineProps<{
-  href?: string
-  noIcon?: boolean
+  to: string
 }>()
-const isExternal = computed(() => props.href && /^[a-z]+:/i.test(props.href))
+const isExternalLink = computed(() => {
+  return typeof props.to === 'string' && props.to.startsWith('http')
+})
 </script>
 
 <template>
-  <component
-    :is="href ? 'a' : 'span'"
-    class="vt-link"
-    :class="{ link: href }"
-    :href="href"
-    :target="isExternal ? '_blank' : undefined"
-    :rel="isExternal ? 'noopener noreferrer' : undefined"
-  >
+  <a v-if="isExternalLink" v-bind="$attrs" :href="to" target="_blank">
     <slot />
-  </component>
+  </a>
+  <router-link v-else v-bind="$props">
+    <slot />
+  </router-link>
 </template>
